@@ -1,0 +1,55 @@
+.loginpage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_body_one {
+  height: 80%;
+  width: 30%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.login_body_two {
+  height: 80%;
+  width: 50%;
+}
+
+.loginbg {
+  height: 100%;
+  width: 100%;
+}
+.loginbg1 {
+  height: 100%;
+  width: 80%;
+}
+.login_card {
+  height: auto;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgb(165, 207, 247);
+  justify-content: space-evenly;
+  position: absolute;
+  top: 120px;
+  right: 250px;
+  opacity: 0.9;
+  padding: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.login_card > input {
+  border: none;
+}
+.login_card > button {
+  border: none;
+  cursor: pointer;
+}
+
+.card-title{
+  text-align: center !important;
+  font: 400;
+}
+.error-msg{
+  color: red;
+}

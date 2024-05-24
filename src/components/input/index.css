@@ -1,0 +1,74 @@
+.input-container {
+    /* border: 1px solid #000; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    /* margin: 5px 10px; */
+    position: relative;
+    row-gap: 10px;
+}
+
+.input-container > input {
+    font-family: Poppins-Medium !important;
+}
+
+.input-toast-con {
+    /* border: 1px solid #d2d2d2; */
+    position: absolute;
+    right: 0px;
+    top: 2px;
+    font-size: 10px;
+    padding: 0px 10px;
+    /* width: 100px; */
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Monstserrat-SemiBold;
+    z-index: 2;
+    /* background-color: red; */
+    color: red;
+}
+
+/* .HR-input-toast-con:before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid red;
+  border-top: 10px solid red;
+  border-bottom: 10px solid transparent;
+  right: 0px;
+  bottom: -10px;
+  z-index: -1;
+} */
+
+.input {
+    width: 100%;
+    padding: 5px 8px !important;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    outline: none !important;
+}
+
+/* @media screen and (min-width: 375px) {
+   .HR-input {
+       width: 85%;
+       padding: 5px 8px !important;
+       border: 1px solid #d2d2d2;
+       border-radius: 5px;
+       outline: none !important;
+   }
+} */
+
+.error-field {
+    border: 1px solid red !important;
+}
+
+.important-field {
+    color: red;
+    font-weight: 600;
+    margin-left: 3px;
+}
