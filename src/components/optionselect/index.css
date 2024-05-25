@@ -1,4 +1,4 @@
-.Dimmenxion-option-select-container {
+.option-select-container {
      /* border: 1px solid #000; */
      display: flex;
      justify-content: space-evenly;
@@ -7,11 +7,11 @@
      /* margin: 8px 10px; */
  }
  
- .Dimmenxion-option-select {
+ .option-select {
      width: 100% !important;
      outline: none !important;
  }
- .Dimmenxion-input-container>select {
+ .input-container>select {
      font-family: Monstserrat !important;
      font-size: 14px;
  }
@@ -58,7 +58,7 @@
  
  }
  
- .Dimmenxion-option-select-name-block {
+ .option-select-name-block {
      margin-left: 5px;
      font-size: 18px !important;
      font-family: Monstserrat-SemiBold !important;

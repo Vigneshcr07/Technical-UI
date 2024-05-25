@@ -45,8 +45,8 @@ const OptionSelect = ({
      };
 
      return (
-          <div className={'Dimmenxion-option-select-container'} {...optionSelectProps}>
-               <div className={'Dimmenxion-option-select-name-block'}>
+          <div className={'option-select-container'} {...optionSelectProps}>
+               <div className={'option-select-name-block'}>
                     {name}
                     {important && <span className='important-field'>*</span>}{' '}
                </div>
@@ -55,7 +55,7 @@ const OptionSelect = ({
                     options={options}
                     width={width}
                     isDisabled={disable}
-                    className={'Dimmenxion-option-select'}
+                    className={'option-select'}
                     placeholder={<div className="select-placeholder-text">{placeholder ? placeholder : "Select"}</div>}
                     value={value}
                     style={{ height: OptionSelectHeight }}
