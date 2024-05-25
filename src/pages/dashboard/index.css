@@ -91,3 +91,52 @@
   justify-content: center;
   align-items: center;
 }
+
+.toggle-button- {
+  margin-left: 15px;
+  margin-top: 2px;
+  border-radius: 20px !important;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #28a745;
+}
+
+.toggle-button-active {
+  margin-left: 15px;
+  margin-top: 2px;
+  border-radius: 20px !important;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: grey;
+}
+
+.toggle-switch {
+  position: absolute;
+  width: 24px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  left: -2px;
+  top: -2px;
+  transform: translateX(20px);
+  transition: transform 0.3s ease;
+}
+
+.toggle-button-active .toggle-switch {
+  transform: translateX(0px);
+}
+
+.toggle-button.success .toggle-switch {
+  background-color: #28a745;
+}
+
+.toggle-button.secondary .toggle-switch {
+  background-color: #6c757d;
+}

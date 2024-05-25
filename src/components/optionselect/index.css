@@ -1,23 +1,39 @@
-.option-select-container {
+.Dimmenxion-option-select-container {
+     /* border: 1px solid #000; */
      display: flex;
      justify-content: space-evenly;
      flex-direction: column;
      align-items: flex-start;
-}
-.option-select-name-block {
-     margin-left: 5px;
-     font-size: 18px;
-     font-family: Monstserrat-SemiBold;
-}
-.option-select {
+     /* margin: 8px 10px; */
+ }
+ 
+ .Dimmenxion-option-select {
      width: 100% !important;
      outline: none !important;
-}
-.css-qc6sy-singleValue {
-     font-family: Monstserrat-SemiBold !important;
-     font-size: 12px !important;
-}
-.tss-1vsygk-MUIDataTableFilterList-root {
+ }
+ .Dimmenxion-input-container>select {
+     font-family: Monstserrat !important;
+     font-size: 14px;
+ }
+ .css-1dimb5e-singleValue {
+     grid-area: 1 / 1 / 2 / 3;
+     max-width: 100%;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     color: none !important;
+     margin-left: 2px;
+     margin-right: 2px;
+     box-sizing: border-box;
+     font-family: Monstserrat !important;
+     font-size: 18px;
+ }
+ .css-qc6sy-singleValue {
+     /* font-family: Monstserrat-SemiBold !important; */
+     font-size: 18px !important;
+ }
+ 
+ .tss-1vsygk-MUIDataTableFilterList-root {
      display: -webkit-box !important;
      display: -webkit-flex !important;
      display: -ms-flexbox !important;
@@ -32,27 +48,39 @@
      flex-wrap: wrap !important;
      margin: 0px 16px 20px 0px !important;
      column-gap: 10px !important;
-}
-.important-field {
+ }
+ 
+ .important-field {
      color: red;
      font-weight: 600;
-}
-
-.select_option_outter_container {
-     border: 1px solid #d2d2d2;
-     width: 100%;
-     padding: 0px 10px;
-     border-radius: 5px;
-}
-.select_option_container_component {
-     width: 100%;
-     height: 40px;
-     border: none;
-     line-height: 50px;
-}
-.select_option_item_select {
-     border: 1px solid #d2d2d2 !important;
-}
-.component_react_select__menu {
-     z-index: 3 !important;
-}
+     margin-left: 3px;
+ 
+ 
+ }
+ 
+ .Dimmenxion-option-select-name-block {
+     margin-left: 5px;
+     font-size: 18px !important;
+     font-family: Monstserrat-SemiBold !important;
+ }
+ .react-select-3-placeholder {
+     /* font-family: Monstserrat-SemiBold !important; */
+     font-size: 12px !important;
+ }
+ option::placeholder {
+     font: 18px Monstserrat;
+ }
+ 
+ select.placeholder {
+     font: 18px Monstserrat;
+     color: #615f5f;
+ }
+ 
+ select:required:invalid {
+     color: red;
+ }
+ .select-placeholder-text{
+   font: 14px Monstserrat;
+   color: #615f5f !important;
+   
+ }

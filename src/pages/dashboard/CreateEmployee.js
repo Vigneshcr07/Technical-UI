@@ -1,41 +1,40 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { Button } from "reactstrap";
 
-import Button from "../../components/button";
+import Button1 from "../../components/button";
 import InputField from "../../components/input";
 import OptionSelect from "../../components/optionselect";
-import { CREATE_EMPLOYEE, UPDATE_EMPLOYEE } from "../../services/ApiService";
+import {
+  CREATE_EMPLOYEE,
+  GET_MANAGER,
+  UPDATE_EMPLOYEE,
+} from "../../services/ApiService";
 
 import "./index.css";
 
 const AddContact = ({ toView, editData }) => {
-  const { loginUser } = useSelector((state) => state.counter);
   const dataSetter = () =>
     !editData
-      ? { name: "", user_name: "", manager: "", subordinates: [] }
+      ? { name: "", manager: "", isManager: false }
       : {
           name: editData.name ?? "",
-          user_name: editData.user_name ?? "",
           manager: editData.manager ?? "",
-          subordinates: editData.subordinates ?? [],
+          isManager: editData.isManager ?? "",
         };
 
   const selectSetter = () =>
     !editData
-      ? { manager: "", subordinates: "" }
+      ? { manager: "" }
       : {
           manager: {
             value: editData.manager ?? undefined,
             label: editData.manager ?? undefined,
           },
-          subordinates: {
-            value: editData.subordinates ?? undefined,
-            label: editData.subordinates ?? undefined,
-          },
         };
 
   const [data, setData] = useState(dataSetter());
   const [select, setSelect] = useState(selectSetter());
+  const [options, setOptions] = useState();
 
   const inputChangeHandler = (name, value) => {
     setData({ ...data, [name]: value });
@@ -56,7 +55,6 @@ const AddContact = ({ toView, editData }) => {
     try {
       response = await CREATE_EMPLOYEE({
         ...data,
-        manager: data.manager !== "" ? data.manager : loginUser._id,
       });
       if (response.success === true) {
         toView();
@@ -74,7 +72,6 @@ const AddContact = ({ toView, editData }) => {
       response = await UPDATE_EMPLOYEE(
         {
           ...data,
-          manager: data.manager !== "" ? data.manager : loginUser._id,
         },
         editData._id
       );
@@ -88,12 +85,38 @@ const AddContact = ({ toView, editData }) => {
     }
   };
 
+  const getManager = async () => {
+    let response;
+    try {
+      response = await GET_MANAGER(editData ?? {});
+      if (response.success === true) {
+        const options = [];
+        response.employee.map((employee) => {
+          options.push({
+            label: employee.name,
+            value: employee.name,
+          });
+        });
+
+        setOptions(options);
+      } else {
+        alert(response.error);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  React.useEffect(() => {
+    getManager();
+  }, []);
+
   return (
     <div className="page-container">
       <div className="table-container">
         <div className="main-content">
           <div className="sub-header">
-            <Button
+            <Button1
               name="Go back"
               type="submit"
               style={{ marginTop: "20px", height: "20px" }}
@@ -114,22 +137,12 @@ const AddContact = ({ toView, editData }) => {
                 onChange={inputChangeHandler}
                 important={true}
               />
-            </div>
-            <div className="column">
-              <InputField
-                name={"User Name"}
-                placeholder="Enter the User Name"
-                value={data["user_name"]}
-                keyname={"user_name"}
-                width="50%"
-                onChange={inputChangeHandler}
-                important={true}
-              />
-            </div>
-            <div className="column">
+            </div>            
+            <div className="column" style={{ marginTop: "-10px" }}>
               <OptionSelect
                 name={"Manager Name"}
                 placeholder="Enter the Manager Name"
+                options={options}
                 value={select["manager"]}
                 keyname={"manager"}
                 width="70%"
@@ -137,28 +150,28 @@ const AddContact = ({ toView, editData }) => {
                 important={true}
               />
             </div>
-            <div className="column">
-              <OptionSelect
-                name={"Subordinates Name"}
-                placeholder="Enter the Subordinate Name"
-                value={select["subordinates"]}
-                keyname={"subordinates"}
-                width="90%"
-                onChange={optionChangeHandler}
-                important={true}
-              />
+            <div className="column" style={{ marginTop: "20px" }}>
+              Is the employee a Manager?
+              <Button
+                onClick={() => {
+                  setData({ ...data, isManager: !data["isManager"] });
+                }}
+                className={`toggle-button-${data.isManager ? "" : "active"}`}
+              >
+                <div className="toggle-switch"></div>
+              </Button>
             </div>
           </div>
         </div>
         <div className="footer">
           <div className="button-row">
             <div className="button-column">
-              <Button
+              <Button1
                 name="Reset"
                 style={{ height: "20px" }}
                 onClick={() => reset()}
               />
-              <Button
+              <Button1
                 name="submit"
                 type="submit"
                 style={{ height: "20px" }}

@@ -37,10 +37,11 @@ export const ADD_LOGIN = async (body) => {
     return Response;
   };
 
-  export const GET_EMPLOYEE = async (id) => {
+  export const GET_MANAGER = async (body) => {
     let options = {
-      url: `${API}/api/employees/view/${id}`,
-      method: METHOD.GET,
+      url: `${API}/api/employees/view/manager`,
+      method: METHOD.PUT,
+      body: JSON.stringify(body),
     };
   
     let Response = await FETCH(options);

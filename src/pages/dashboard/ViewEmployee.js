@@ -56,14 +56,7 @@ const ViewEmployee = ({ toCreate, toEditData }) => {
       filterable: true,
       disableFilters: true,
       width: "150px",
-    },
-    {
-      Header: "User Name",
-      accessor: "user_name",
-      filterable: true,
-      disableFilters: true,
-      width: "200px",
-    },
+    },   
     {
       Header: "Manager",
       accessor: "manager",
